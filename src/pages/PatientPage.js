@@ -1,10 +1,9 @@
-import { Helmet, HelmetProvider } from "react-helmet-async";
-
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 
-import useFetch from "../components/FetchData";
-import { BASE_URL, PATIENT_ENDPOINT } from "../components/FetchConfig";
+import PageTitle from "../components/page-widgets/PageTitle";
+import useFetch from "../components/fetch/FetchData";
+import { BASE_URL, PATIENT_ENDPOINT } from "../components/fetch/FetchConfig";
 
 const TABLE_HEADER = [
   {
@@ -36,18 +35,25 @@ const TABLE_HEADER = [
 const PatientsTable = () => {
   const { data, error, isLoading } = useFetch(BASE_URL, PATIENT_ENDPOINT);
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <PageTitle title={"Patients | Wellspring"} />
+        <div>Loading...</div>
+      </>
+    );
   }
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <>
+        <PageTitle title={"Patients | Wellspring"} />
+        <div>{error}</div>
+      </>
+    );
   }
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Wellspring | Patients</title>
-        </Helmet>
-      </HelmetProvider>
+      <PageTitle title={"Patients | Wellspring"} />
+
       <Paper sx={{ width: 760, mb: 2 }}>
         <DataGrid
           rows={data}

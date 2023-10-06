@@ -1,51 +1,40 @@
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Paper, Grid, Divider, Typography, Box, Button } from "@mui/material";
 
-import useFetch from "../components/FetchData";
-import {
-  BASE_URL,
-  PATIENT_ENDPOINT,
-  APPOINTMENTS_ENDPOINT,
-} from "../components/FetchConfig";
+import PageTitle from "../components/page-widgets/PageTitle";
+import RecentPatients from "../sections/dashboard/RecentPatients";
 
 const DashboardPage = () => {
-  const {
-    data: patientsData,
-    error: patientsError,
-    isLoading: patientsLoading,
-  } = useFetch(BASE_URL, PATIENT_ENDPOINT);
-
-  const {
-    data: appointmentsData,
-    error: appointmentsError,
-    isLoading: appointmentsLoading,
-  } = useFetch(BASE_URL, APPOINTMENTS_ENDPOINT);
-
-  if (patientsLoading) {
-    return <div>Loading ...</div>;
-  }
-  if (patientsError) {
-    return <div>{patientsError}</div>;
-  }
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Wellspring | Home</title>
-        </Helmet>
-      </HelmetProvider>
-      <div className="App">
-        <header className="App-header">
-          <p>
-            {patientsData.length > 0 && (
-              <ul>
-                {patientsData.map((user) => (
-                  <li key={user.id}>{user.patientName}</li>
-                ))}
-              </ul>
-            )}
-          </p>
-        </header>
-      </div>
+      <PageTitle title={"Home | Wellspring"} />
+      <Typography variant="h3" gutterBottom sx={{ pb: 4 }}>
+        Good Morning
+      </Typography>
+      <Grid container spacing={2}>
+        <Paper
+          elevation={2}
+          sx={{ minWidth: 600, mb: 2, mx: 2, p: 4, borderRadius: "16px" }}
+        >
+          <Box className="content-card">
+            <h2 className="card">Recent Patients</h2>
+            <Button size="small" color="inherit" href="/patients">
+              View all
+            </Button>
+          </Box>
+          <Divider sx={{ borderBottomWidth: 3 }} />
+          <RecentPatients />
+        </Paper>
+        <Paper
+          elevation={2}
+          sx={{ minWidth: 600, mb: 2, mx: 2, p: 4, borderRadius: "16px" }}
+        >
+          <Box className="content-card">
+            <h2 className="card">Appointments</h2>
+          </Box>
+          <Divider sx={{ borderBottomWidth: 3 }} />
+          
+        </Paper>
+      </Grid>
     </>
   );
 };
