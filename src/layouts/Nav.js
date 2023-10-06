@@ -1,18 +1,13 @@
 import { useLocation } from "react-router-dom";
+import {Drawer, ListItem} from "@mui/material";
 
-import Drawer from "@mui/material/Drawer";
-import ListItem from "@mui/material/ListItem";
-import Toolbar from "@mui/material/Toolbar";
-import { styled } from "@mui/material/styles";
-
+import CustomToolbar from "../components/page-widgets/Toolbar"
 import logo from "../assets/icons/logo.png";
 import homeLine from "../assets/icons/homeLine.png";
 import heartHand from "../assets/icons/heartHand.png";
 
 export const DRAWER_WIDTH = 240;
-const CustomToolbar = styled(Toolbar)(({ height }) => ({
-  height: height,
-}));
+
 
 const Sidebar = () => {
   const location = useLocation();
@@ -45,7 +40,7 @@ const Sidebar = () => {
       </ListItem>
       <CustomToolbar height="100px" />
       <nav className="navbar">
-        <CustomNavItem to="/" text="Home" imgAddress={homeLine} />
+        <CustomNavItem to="/home" text="Home" imgAddress={homeLine} />
         <CustomNavItem to="/patients" text="Patients" imgAddress={heartHand} />
       </nav>
     </Drawer>
