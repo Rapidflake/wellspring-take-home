@@ -9,7 +9,7 @@ const DashboardPage = () => {
     <>
       <PageTitle title={"Home | Wellspring"} />
       <Typography variant="h3" gutterBottom sx={{ pb: 4 }}>
-        Good Morning
+        Good Morning, Yang!
       </Typography>
       <Grid container spacing={2}>
         <Paper
@@ -30,7 +30,7 @@ const DashboardPage = () => {
           sx={{ minWidth: 600, mb: 2, mx: 2, p: 4, borderRadius: "16px" }}
         >
           <Box className="content-card">
-            <h2 className="card">Appointments</h2>
+            <h2 className="card">Upcoming Visits</h2>
           </Box>
           <Divider sx={{ borderBottomWidth: 3, marginBottom: 2 }} />
           <UpcomingAppointments />
