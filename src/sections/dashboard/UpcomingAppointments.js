@@ -2,27 +2,12 @@ import { useState } from "react";
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 
 import useFetch from "../../components/fetch/FetchData";
+import TabPanel from "../../components/page-widgets/TabPanel";
 import ListAppointment from "../../components/page-widgets/ListAppointment";
 import {
   BASE_URL,
   APPOINTMENTS_ENDPOINT,
 } from "../../components/fetch/FetchConfig";
-
-const TabPanel = ({ children, value, index, ...other }) => (
-  <div
-    role="tabpanel"
-    hidden={value !== index}
-    id={`tabpanel-${index}`}
-    aria-labelledby={`tab-${index}`}
-    {...other}
-  >
-    {value === index && (
-      <Box sx={{ p: 3 }}>
-        <Typography>{children}</Typography>
-      </Box>
-    )}
-  </div>
-);
 
 const a11yProps = (index) => ({
   id: `tab-${index}`,
