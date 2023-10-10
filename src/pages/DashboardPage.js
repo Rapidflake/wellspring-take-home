@@ -2,6 +2,7 @@ import { Paper, Grid, Divider, Typography, Box, Button } from "@mui/material";
 
 import PageTitle from "../components/page-widgets/PageTitle";
 import RecentPatients from "../sections/dashboard/RecentPatients";
+import UpcomingAppointments from "../sections/dashboard/UpcomingAppointments";
 
 const DashboardPage = () => {
   return (
@@ -21,7 +22,7 @@ const DashboardPage = () => {
               View all
             </Button>
           </Box>
-          <Divider sx={{ borderBottomWidth: 3 }} />
+          <Divider sx={{ borderBottomWidth: 3, marginBottom: 2 }} />
           <RecentPatients />
         </Paper>
         <Paper
@@ -31,8 +32,8 @@ const DashboardPage = () => {
           <Box className="content-card">
             <h2 className="card">Appointments</h2>
           </Box>
-          <Divider sx={{ borderBottomWidth: 3 }} />
-          
+          <Divider sx={{ borderBottomWidth: 3, marginBottom: 2 }} />
+          <UpcomingAppointments />
         </Paper>
       </Grid>
     </>

@@ -1,13 +1,12 @@
 import { useLocation } from "react-router-dom";
-import {Drawer, ListItem} from "@mui/material";
+import { Drawer, ListItem } from "@mui/material";
 
-import CustomToolbar from "../components/page-widgets/Toolbar"
+import CustomToolbar from "../components/page-widgets/Toolbar";
 import logo from "../assets/icons/logo.png";
 import homeLine from "../assets/icons/homeLine.png";
 import heartHand from "../assets/icons/heartHand.png";
 
 export const DRAWER_WIDTH = 240;
-
 
 const Sidebar = () => {
   const location = useLocation();

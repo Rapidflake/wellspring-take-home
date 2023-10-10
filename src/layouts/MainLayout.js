@@ -24,7 +24,7 @@ const MainLayout = () => {
         height="100vh"
         sx={{
           flexGrow: 1,
-          bgcolor: "#FCFCFD",
+          backgroundColor: "#FCFCFD",
           p: 5,
           width: `calc(100% - ${DRAWER_WIDTH}px)`,
         }}
