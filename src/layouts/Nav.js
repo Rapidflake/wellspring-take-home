@@ -11,9 +11,9 @@ export const DRAWER_WIDTH = 240;
 const Sidebar = () => {
   const location = useLocation();
 
-  const CustomNavItem = ({ to, text, imgAddress }) => (
+  const CustomNavItem = ({ to, text, imgAddress, altText }) => (
     <li id="nav-item" className={location.pathname === to ? "active" : ""}>
-      <img className="icon" src={imgAddress} />
+      <img className="icon" src={imgAddress} alt={altText}/>
       <a href={to}>{text}</a>
     </li>
   );
@@ -39,8 +39,8 @@ const Sidebar = () => {
       </ListItem>
       <CustomToolbar height="100px" />
       <nav className="navbar">
-        <CustomNavItem to="/home" text="Home" imgAddress={homeLine} />
-        <CustomNavItem to="/patients" text="Patients" imgAddress={heartHand} />
+        <CustomNavItem to="/home" text="Home" imgAddress={homeLine} altText="Home line" />
+        <CustomNavItem to="/patients" text="Patients" imgAddress={heartHand} altText="Heart hand" />
       </nav>
     </Drawer>
   );
